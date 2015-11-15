@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Streaming</title>
+</head>
+<body>
+  <img id="video" />
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io.connect()
+    var video = document.querySelector('#video')
+    socket.on('image', function (buffer) {
+      video.src = 'data:image/jpeg;base64,' + buffer
+    })
+  </script>
+
+</body>
+</html>
+<!-- ponerlo en la carpeta public -->
